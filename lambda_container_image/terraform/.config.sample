@@ -1,0 +1,2 @@
+PROFILE=__profile__name
+SERIAL_NUMBER=arn:aws:iam::__account_id__:mfa/__iam_name__

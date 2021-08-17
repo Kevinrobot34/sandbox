@@ -1,0 +1,10 @@
+terraform {
+  backend "s3" {
+    bucket                  = "<bucket_name>"
+    region                  = "ap-northeast-1"
+    key                     = "<path_to_tfstate>/terraform.tfstate.aws"
+    shared_credentials_file = ".credentials"
+    role_arn                = "<terraform_role>"
+    encrypt                 = true
+  }
+}
