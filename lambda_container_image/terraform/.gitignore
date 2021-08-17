@@ -1,0 +1,6 @@
+.config
+.credentials
+backend.tf
+.terraform.lock.hcl
+*.tfvars
+.terraform
