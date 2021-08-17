@@ -16,7 +16,7 @@ resource "aws_ecr_lifecycle_policy" "sandbox_container_lambda_image_policy" {
     "rules": [
         {
         "rulePriority": 1,
-        "description": "For not prod env, keep latest 3",
+        "description": "keep latest 3",
         "selection": {
             "tagStatus": "any",
             "countType": "imageCountMoreThan",
