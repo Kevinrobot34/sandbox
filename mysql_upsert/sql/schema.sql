@@ -7,5 +7,6 @@ CREATE TABLE `time_series` (
   `value` int NOT NULL,
   `created_at` DATETIME(6) DEFAULT CURRENT_TIMESTAMP(6),
   `updated_at` DATETIME(6) DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
-   PRIMARY KEY(`id`)
+   PRIMARY KEY(`id`),
+   UNIQUE `idx_ts_date` (time_series_id, date) -- UNIQUE KEY to use upsert
 ) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8mb4;
