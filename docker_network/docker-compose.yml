@@ -1,0 +1,64 @@
+version: "3.8"
+
+services:
+  ubuntu1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ubuntu1
+    tty: true
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: admin
+      MYSQL_DB: mysample
+    networks:
+      fixed_compose_network1:
+
+
+  ubuntu2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ubuntu2
+    tty: true
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: admin
+      MYSQL_DB: mysample
+    networks:
+      fixed_compose_network2:
+
+
+  db:
+    image: mysql:5.7
+    platform: linux/x86_64
+    container_name: mysql
+    tty: true
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: mysample
+    networks:
+      fixed_compose_network1:
+
+
+volumes:
+  mysql-data:
+
+
+networks:
+  fixed_compose_network1:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.100.0/24
+  fixed_compose_network2:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.200.0/24
