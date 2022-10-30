@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  prototype:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      target: app-base
+    restart: always
+    # entrypoint: >
+    #   uvicorn src.main:app --reload
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
+    container_name: fastapi_sample
+    volumes:
+      - ./src:/prototype/src
+      - ./templates:/prototype/templates
+      - ./pyproject.toml:/prototype/pyproject.toml
+      - ./poetry.lock:/prototype/poetry.lock
