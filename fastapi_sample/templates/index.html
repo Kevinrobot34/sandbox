@@ -27,12 +27,6 @@
                 </div>
             </div>
             <div class="input-group mb-3 row">
-                <label for="inputForm2" class="col-sm-2 col-form-label">Form2</label>
-                <div class="col-sm-10">
-                    <input type="form2" name="form2" class="form-control" id="inputForm2" placeholder="1.0" required>
-                </div>
-            </div>
-            <div class="input-group mb-3 row">
                 <div class="col-sm-10">
                     <button type="submit" class="btn btn-primary">Calculate</button>
                 </div>
@@ -53,6 +47,9 @@
         input: {{ input_data }}
 
         prediction: {{ result }}
+
+        <img src="{{ img | safe }}">
+
         {% endif %}
 
 
