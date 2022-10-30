@@ -13,3 +13,8 @@ services:
     ports:
       - 8080:8080
     container_name: fastapi_sample
+    volumes:
+      - ./src:/prototype/src
+      - ./templates:/prototype/templates
+      - ./pyproject.toml:/prototype/pyproject.toml
+      - ./poetry.lock:/prototype/poetry.lock
