@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "lang-chain-sample"
+version = "0.1.0"
+description = ""
+authors = ["Kosaku Ono <kevinrobot34@gmail.com>"]
+readme = "README.md"
+packages = [{include = "lang_chain_sample"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+openai = "^0.27.4"
+langchain = "^0.0.135"
+
+
+[tool.poetry.group.dev.dependencies]
+yapf = "^0.32.0"
+mypy = "^1.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
